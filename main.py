@@ -4,10 +4,9 @@ import telebot
 from telebot.types import Message, BotCommand, InlineKeyboardMarkup, InlineKeyboardButton
 import sqlite3
 from decimal import Decimal, InvalidOperation, getcontext
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import threading
-import pytz
 import sys
 import requests
 import uuid
@@ -259,7 +258,8 @@ def run_rate_updater():
             time.sleep(300)
 
 def get_moscow_time():
-    return datetime.now(pytz.timezone('Europe/Moscow'))
+    # Используем встроенный timezone вместо pytz
+    return datetime.now(timezone(timedelta(hours=3)))
 
 def get_user_info(user_id):
     try:
