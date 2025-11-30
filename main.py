@@ -4,10 +4,9 @@ import telebot
 from telebot.types import Message, BotCommand, InlineKeyboardMarkup, InlineKeyboardButton
 import sqlite3
 from decimal import Decimal, InvalidOperation, getcontext
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone  # <-- ЭТУ строку поставь
 import time
 import threading
-import pytz
 import sys
 import requests
 import uuid
